@@ -16,20 +16,13 @@ async function dbPass() {
         process.exit();
     }
 
-    const Account = sequelize.define('Account', {
-        accId: DataTypes.INTEGER,
+    const Accounts = sequelize.define('Accounts', {
         token: DataTypes.STRING,
         nickname: DataTypes.STRING,
         proxy: DataTypes.STRING,
-    },
-{
-            indexes:[
-        {
-            unique: true,
-            fields:['accId']
-        }
-    ]
     });
+
+    await sequelize.sync();
 }
 
 dbPass();
